@@ -112,7 +112,7 @@ router.get('/:id/:userid' , checkLoginUser ,async function(req, res, next) {
     });
   });
   //res.render('Sellerdashboard', { title: 'No Stores Exist' });
-}); 
+});   
 
 router.post('/:id/:userid', upload , function(req, res, next) {
   var loginUser = localStorage.getItem("loginUser");

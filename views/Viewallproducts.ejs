@@ -301,6 +301,8 @@
 									  <th>Price</th>
 									  <th>Quantity</th>
 									  <th>User</th>
+									  <th>Delivery Address</th>
+									  <th></th>
 									</tr>
 								  </thead>
 								  <tbody>
@@ -321,8 +323,8 @@
 									  <td><%=row.user_id.username%></td>
 									  
 									  <td><%=row.user_id.address%></td>
-									  <td><a href="/Viewallproducts/<%=row._id%>/<%=user_id%>/<%=shop_id%>"><i class="ti-trash"></i></a></td>
-									  
+									  <td><a class="btn btn-outline-success btn-sm"  href="/Viewallproducts/<%=row._id%>/<%=user_id%>/<%=shop_id%>" >IsDelivered</a></td>
+
 		
 									</tr>
 		
