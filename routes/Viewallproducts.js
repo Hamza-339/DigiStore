@@ -50,6 +50,15 @@ function checkLoginUser(req,res,next){
   next();
 }
 
+router.get('/:orderid/:shopid/:userid' , checkLoginUser ,async function(req, res, next) {
+  var ordersDetails = await confirmedorderModel.update({_id:req.params.orderid},{
+    $set:{
+      isDeleiverd:true
+  }});
+ 
+  res.redirect(`/Viewallproducts/${req.params.userid}/${req.params.shopid}`);
+})
+
 router.get('/:id/:userid' , checkLoginUser ,async function(req, res, next) {
   var loginUser = localStorage.getItem("loginUser");
   let customerids = []; 
@@ -59,7 +68,7 @@ router.get('/:id/:userid' , checkLoginUser ,async function(req, res, next) {
   //var userid=req.query.id;
   var shopid = req.params.id;
   var user_id = req.params.userid;
-  var ordersDetails = await confirmedorderModel.find({shop_id:shopid}).populate("product_id").populate("user_id");
+  var ordersDetails = await confirmedorderModel.find({shop_id:shopid,isDeleiverd:false}).populate("product_id").populate("user_id");
   console.log("orders fetched");
   var getshopDetails = shopModel.findOne({_id:shopid});
   var getproductDetails = productModel.find({shop_id:shopid});
