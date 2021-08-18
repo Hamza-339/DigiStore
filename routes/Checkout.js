@@ -132,7 +132,8 @@ router.post('/:userid',async function(req, res, next) {
                     user_id:require('mongoose').Types.ObjectId(user_id),
                     product_id:productElement._id,
                     quantity:productquantity,
-                    shop_id:productElement.shop_id
+                    shop_id:productElement.shop_id,
+                    isDeleiverd:false
                     
                 });
                 const savedStatus=await confirmProduct.save();
