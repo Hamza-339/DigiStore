@@ -60,7 +60,7 @@ router.get('/:id/:userid' , checkLoginUser ,async function(req, res, next) {
   var shopid = req.params.id;
   var user_id = req.params.userid;
   var ordersDetails = await confirmedorderModel.find({shop_id:shopid}).populate("product_id").populate("user_id");
-  
+  console.log("orders fetched");
   var getshopDetails = shopModel.findOne({_id:shopid});
   var getproductDetails = productModel.find({shop_id:shopid});
 
