@@ -82,7 +82,7 @@ router.get('/:id/:userid' , checkLoginUser ,async function(req, res, next) {
   });
 });   
 
-router.post('/:id/:userid', upload , function(req, res, next) {
+router.post('/:id/:userid', upload , async function(req, res, next) {
   var loginUser = localStorage.getItem("loginUser");
   var user_id = req.params.userid;
   var shopid = req.params.id;
@@ -93,6 +93,11 @@ router.post('/:id/:userid', upload , function(req, res, next) {
   var productquantity = req.body.productquantity;
   var productimage = req.file.filename;
   
+  var ordersDetails = await confirmedorderModel.find({shop_id:shopid,isDeleiverd:false}).populate("product_id").populate("user_id");
+  console.log("orders fetched");
+  var getshopDetails = shopModel.findOne({_id:shopid});
+  var getproductDetails = productModel.find({shop_id:shopid});
+
   //var success = req.file.filename+ " upload successfully";
   //console.log(userid);
   var productDetails = new productModel({
@@ -111,7 +116,7 @@ router.post('/:id/:userid', upload , function(req, res, next) {
       if(err) throw err;
       getshopDetails.exec(function(err,data1){
         if(err) throw err;
-        res.render('Viewallproducts', { title: 'Viewallproducts', records:data , shop_id:shopid , record:data1 , user_id:user_id , loginUser:loginUser});
+        res.render('Viewallproducts', { title: 'Viewallproducts', records:data , orders:ordersDetails ,shop_id:shopid , record:data1 , user_id:user_id , loginUser:loginUser});
       });
     });
   //  res.render('CreateStore', { title: 'Upload File', success:success });
