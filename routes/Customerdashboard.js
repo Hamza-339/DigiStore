@@ -21,24 +21,17 @@ var Storage = multer.diskStorage({
     storage:Storage
   }).single('file');
 
-/*router.get('/' , function(req, res, next) {
-    //var userid = req.params.id;     
-    console.log("router called, customer dashboard");
-    var userid=req.query.id;
-    var getshopDetails = shopModel.find({});
-    var getproductDetails = productModel.find({});
-  
-    getshopDetails.exec(function(err,data){//shop data execute
-      if(err) throw err;
-      getproductDetails.exec(function(err,data1){
-        if(err) throw err;
-        res.render('Customerdashboard', { title: 'Customerdashboard', records:data , record:data1});
-      })
-    });
-    //res.render('Sellerdashboard', { title: 'No Stores Exist' });
-});*/
+  function checkLoginUser(req,res,next){
+    var userToken=localStorage.getItem('userToken');
+    try {
+      var decoded = jwt.verify(userToken, 'loginToken');
+    } catch(err) {
+      res.redirect('/');
+    }
+    next();
+}
 
-router.get('/', upload , function(req, res, next) {
+router.get('/', upload , checkLoginUser ,function(req, res, next) {
   var product_id_token = localStorage.getItem("productid");
   var loginUser = localStorage.getItem("loginUser");
 

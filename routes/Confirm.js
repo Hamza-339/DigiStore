@@ -14,8 +14,17 @@ var deliveryModel = require('../modules/deliveryinfo');
 router.use(express.static(__dirname+"./public/"))
 //var imageData = uploadModel.find({});
 
+function checkLoginUser(req,res,next){
+    var userToken=localStorage.getItem('userToken');
+    try {
+      var decoded = jwt.verify(userToken, 'loginToken');
+    } catch(err) {
+      res.redirect('/');
+    }
+    next();
+}
 
-router.get('/:userid',async function(req, res, next) {
+router.get('/:userid',checkLoginUser ,async function(req, res, next) {
     var product_id_token = localStorage.getItem("productid");
     var loginUser = localStorage.getItem("loginUser");
     var user_id = req.params.userid;

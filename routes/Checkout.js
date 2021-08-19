@@ -26,7 +26,17 @@ var upload = multer({
   storage:Storage
 }).single('file');
 
-router.get('/:productid/:userid',async function(req, res, next) {
+function checkLoginUser(req,res,next){
+    var userToken=localStorage.getItem('userToken');
+    try {
+      var decoded = jwt.verify(userToken, 'loginToken');
+    } catch(err) {
+      res.redirect('/');
+    }
+    next();
+}
+
+router.get('/:productid/:userid',checkLoginUser ,async function(req, res, next) {
     var loginUser = localStorage.getItem("loginUser");
 
     let productDetails=[];
@@ -58,11 +68,11 @@ router.get('/:productid/:userid',async function(req, res, next) {
         productIds.push(element.product_id);
         });*/
         console.log("iddddddddsssssss "+ productDetails);
-        res.render('Cart', { title: 'Upload File' , cartproducts:productDetails , loginUser:loginUser});
+        res.render('Cart', { title: 'Upload File' , cartproducts:productDetails , loginUser:loginUser , user_id:user_id});
     });
 });
 
-router.post('/:userid',async function(req, res, next) {
+router.post('/:userid',checkLoginUser,async function(req, res, next) {
     var product_id_token = localStorage.getItem("productid");
     var loginUser = localStorage.getItem("loginUser");
     let productDetailsArr=[];

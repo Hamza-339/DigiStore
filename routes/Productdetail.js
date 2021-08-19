@@ -52,7 +52,7 @@ router.get('/delete/:id/:shop_id/:userid', checkLoginUser , function(req, res, n
 router.get('/update/:id/:shop_id/:userid', upload , checkLoginUser , function(req,res,next){
     var loginUser = localStorage.getItem("loginUser");
 
-    var userid = req.params.userid;
+    var userid = req.params.userid; 
     var product_id = req.params.id;
     var shop_id = req.params.shop_id;
 

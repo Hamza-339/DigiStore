@@ -23,9 +23,17 @@ var upload = multer({
   storage:Storage
 }).single('file'); 
 
+function checkLoginUser(req,res,next){
+  var userToken=localStorage.getItem('userToken');
+  try {
+    var decoded = jwt.verify(userToken, 'loginToken');
+  } catch(err) {
+    res.redirect('/');
+  }
+  next();
+}
 
-
-router.get('/:id', upload , function(req,res,next){
+router.get('/:id', upload , checkLoginUser ,function(req,res,next){
     var product_id_token = localStorage.getItem("productid");
     var loginUser = localStorage.getItem("loginUser");
 

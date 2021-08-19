@@ -73,37 +73,6 @@ router.get('/:id/:userid' , checkLoginUser ,async function(req, res, next) {
   var getshopDetails = shopModel.findOne({_id:shopid});
   var getproductDetails = productModel.find({shop_id:shopid});
 
-  // //console.log(ordersDetails);
-  //   ordersDetails.forEach(element=>{
-  //     customerids.push(element.user_id);
-  //   })
-  //   console.log("DETAILS" + ordersDetails);
-
-  // //var c_id = customerids[0];
-  // //console.log("USER ID :::: "+c_id);
-
-  // customerids.forEach(element=>{
-  //   var objectId = mongoose.Types.ObjectId(element);
-  //   var getuserdata = userModule.findOne({_id:objectId});
-  //   getuserdata.exec(function(err,data){
-  //     if(err) throw err;
-  //     customernames.push(data.username);
-  //     customeraddresses.push(data.address)
-      
-  //   })
-  //   console.log(customeraddresses); 
-  // })
- 
-  //console.log("Customer Names: "+customernames); 
-  //var objectId = mongoose.Types.ObjectId(c_id);
-
-
-  //var getuserdata = await userModule.findOne({_id:objectId});
-  //var username = getuserdata.username;
- 
-  //console.log("customer id: "+objectId+"has username: "+username);
-
-
   getproductDetails.exec(function(err,data){//shop data execute
     if(err) throw err;
     getshopDetails.exec(function(err,data1){
@@ -111,7 +80,6 @@ router.get('/:id/:userid' , checkLoginUser ,async function(req, res, next) {
           res.render('Viewallproducts', { title: 'Viewallproducts', orders:ordersDetails, records:data , shop_id:shopid , record:data1 , user_id:user_id , loginUser:loginUser });
     });
   });
-  //res.render('Sellerdashboard', { title: 'No Stores Exist' });
 });   
 
 router.post('/:id/:userid', upload , function(req, res, next) {

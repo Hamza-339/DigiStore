@@ -22,24 +22,17 @@ var Storage = multer.diskStorage({
     storage:Storage
   }).single('file');
 
- /* router.get('/', upload , function(req, res, next) {
-    //console.log("router , with id, get, search products");
+  function checkLoginUser(req,res,next){
+    var userToken=localStorage.getItem('userToken');
+    try {
+      var decoded = jwt.verify(userToken, 'loginToken');
+    } catch(err) {
+      res.redirect('/');
+    }
+    next();
+}
 
-    var getproductDetails = productModel.find({productname:productname});
-    var getshopDetails = shopModel.findOne({_id:shopid});
-    
-    getproductDetails.exec(function(err,data){//shop data execute
-      if(err) throw err;
-      getshopDetails.exec(function(err,data1){
-        if(err) throw err;
-        res.render('Searchproducts', { title: ' ', records:data , record:data1});
-      });
-    });
-  
-  });  */
-
-
-router.post('/:id', upload , function(req, res, next) {
+router.post('/:id', upload , checkLoginUser, function(req, res, next) {
   var loginUser = localStorage.getItem("loginUser");
   var product_id_token = localStorage.getItem("productid");
   console.log("router , with id, post, search products");
