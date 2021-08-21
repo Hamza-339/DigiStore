@@ -23,25 +23,14 @@ var upload = multer({
   storage:Storage
 }).single('file');
 
-function checkLoginUser(req,res,next){
-  var userToken=localStorage.getItem('userToken');
-  try {
-    var decoded = jwt.verify(userToken, 'loginToken');
-  } catch(err) {
-    res.redirect('/');
-  }
-  next();
-}
-
-router.get('/:productid/:userid',checkLoginUser ,async function(req, res, next) {
+router.get('/:productid/:userid',async function(req, res, next) {
+    let productDetails=[];
     var loginUser = localStorage.getItem("loginUser");
 
     console.log("router called, customer view all products");
     //var userid=req.query.id;
     var productid = req.params.productid;
     var user_id = req.params.userid;
-    let productDetails=[];
-
     var getcartDetails = cartModel.find({user_id:user_id}).populate("product_id");
     //var getproductDetails = productModel.find({productname:productname});
     //var getshopDetails = shopModel.findOne({_id:shopid});

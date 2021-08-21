@@ -36,9 +36,8 @@ function checkLoginUser(req,res,next){
 router.get('/:id', upload , checkLoginUser ,function(req,res,next){
     var product_id_token = localStorage.getItem("productid");
     var loginUser = localStorage.getItem("loginUser");
-
     var userid = req.params.id;
-    res.render('Customerfeedback',{ title: 'Customerfeedback' , user_id:userid , product_id_token:product_id_token , Msg:' ' , loginUser:loginUser});     
+    res.render('Sellerfeedback',{ title: 'Customerfeedback' , user_id:userid , product_id_token:product_id_token , Msg:' ' , loginUser:loginUser});     
 });
 
 router.post('/:id', upload , function(req,res,next){
@@ -67,7 +66,7 @@ router.post('/:id', upload , function(req,res,next){
     });
     Feedbackanswers.save(function(err,doc){
         if(err) throw err;
-        res.render('Customerfeedback',{ title: 'Customerfeedback' , user_id:userid , product_id_token:product_id_token , Msg:'Thank you for submitting your feedback !' , loginUser:loginUser});     
+        res.render('Sellerfeedback',{ title: 'Customerfeedback' , user_id:userid , product_id_token:product_id_token , Msg:'Thank you for submitting your feedback !' , loginUser:loginUser});     
     });
 });
 

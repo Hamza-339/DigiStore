@@ -165,16 +165,10 @@
                                 </div>
                                 <ul>
                                     <li>
-                                        <a href="/Customerdashboard?id=<%=user_id%>">Dashboard</a>
+                                        <a href="/Sellerdashboard?id=<%=user_id%>">Dashboard</a>
                                     </li>
                                     <li>
-                                        <a href="/Customerviewallstores/<%=user_id%>">Stores</a>
-                                    </li>
-                                    <li>
-                                        <a href="/Customershowallproducts/<%=user_id%>">Products</a>
-                                    </li>
-                                    <li>
-                                        <a href="/Cart/<%=product_id_token%>/<%=user_id%>">Cart</a>
+                                        <a href="/Sellerstores/<%=user_id%>">Stores</a>
                                     </li>
                                     <li>
                                         <a href="#">Feedback</a>
@@ -182,13 +176,16 @@
                                     <li>
                                         <a href="/logout">LOG OUT</a>
                                     </li>
+                                <!--	<li>
+                                        <a href="/logout">Log out</a>
+                                    </li>-->
                                 </ul>
                             </div>
                             <!--/main-menu -->
                         </nav>
                         <div class="col-xl-3 col-lg-2 d-lg-flex align-items-center justify-content-end text-right">
                             <%if(loginUser!=" "){%>
-                                <a class="phone_top" href="#">Logged in as:  <%= loginUser %> (Customer)</a>
+                                <a class="phone_top" href="#">Logged in as:  <%= loginUser %> (Seller)</a>
                             <%}%>
                         </div>
                     </div>
@@ -201,7 +198,7 @@
     </header>
     <main>
     <div class="testbox">
-      <form action="/Customerfeedback/<%=user_id%>" method="post" role="form">
+      <form action="/Sellerfeedback/<%=user_id%>" method="post" role="form">
         <h1 style="color: #084cdc;font-family: cursive;font-weight:bold;font-size: 40px;">Feedback</h1>
         <% if(Msg !=''){ %>
             <p %>style="text-align:center;font-weight:bold;">   <%=Msg%></p>

@@ -36,7 +36,7 @@ function checkLoginUser(req,res,next){
     next();
 }
 
-router.get('/:productid/:userid',checkLoginUser ,async function(req, res, next) {
+router.get('/:userid',checkLoginUser ,async function(req, res, next) {
     var loginUser = localStorage.getItem("loginUser");
 
     let productDetails=[];

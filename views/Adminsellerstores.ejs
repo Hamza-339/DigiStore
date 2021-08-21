@@ -11,34 +11,33 @@
 
     <!-- Favicons-->
     <link rel="shortcut icon" href="/img/dlogo.png" type="image/x-icon">
-    <link rel="apple-touch-icon" type="image/x-icon" href="img/apple-touch-icon-57x57-precomposed.png">
-    <link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="img/apple-touch-icon-72x72-precomposed.png">
-    <link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="img/apple-touch-icon-114x114-precomposed.png">
-    <link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="img/apple-touch-icon-144x144-precomposed.png">
+    <link rel="apple-touch-icon" type="image/x-icon" href="/img/apple-touch-icon-57x57-precomposed.png">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="/img/apple-touch-icon-72x72-precomposed.png">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="/img/apple-touch-icon-114x114-precomposed.png">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="/img/apple-touch-icon-144x144-precomposed.png">
 	
     <!-- GOOGLE WEB FONT -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap" rel="stylesheet">
 
     <!-- BASE CSS -->
-    <link href="css/bootstrap.custom.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
+    <link href="/css/bootstrap.custom.min.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
 
 	<!-- SPECIFIC CSS -->
-    <link href="css/listing.css" rel="stylesheet">
+    <link href="/css/listing.css" rel="stylesheet">
 
     <!-- YOUR CUSTOM CSS -->
-    <link href="css/custom.css" rel="stylesheet">
+    <link href="/css/custom.css" rel="stylesheet">
 
 	<link src="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 	<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-
 </head>
 
 <body>
 	
-	<div id="page" class="theia-exception">
+	<div id="page">
 		
 	<header class="version_1">
 		<div class="layer"></div><!-- Mobile menu overlay mask -->
@@ -61,18 +60,18 @@
 						<!-- Mobile menu button -->
 						<div class="main-menu">
 							<div id="header_menu">
-								<a href="index.html"><img src="img/logo_black.svg" alt="" width="100" height="35"></a>
+								<a href="index.html"><img src="/img/logo_black.svg" alt="" width="100" height="35"></a>
 								<a href="#" class="open_close" id="close_in"><i class="ti-close"></i></a>
 							</div>
 							<ul style="width: 700px;">
 								<li>
-									<a href="#">Dashboard</a>
+									<a href="/Admindashboard?id=<%=adminid%>">Dashboard</a>
 								</li>
 								<li>
-									<a href="/Adminsellerstores/<%=user_id%>">Store Management</a>
+									<a href="#">Store Management</a>
 								</li>
 								<li>
-									<a href="/Viewregisteredusers/<%=user_id%>">User Management</a>
+									<a href="#">User Management</a>
 								</li>
 								<li>
 									<a href="#">Feedback</a>
@@ -80,16 +79,13 @@
 								<li>
 									<a href="/logout">LOG OUT</a>
 								</li>
-							<!--	<li>
-									<a href="/logout">Log out</a>
-								</li>-->
 							</ul>
 						</div>
 						<!--/main-menu -->
 					</nav>
 					<div class="col-xl-3 col-lg-2 d-lg-flex align-items-center justify-content-end text-right">
 						<%if(loginUser!=" "){%>
-							<a class="phone_top" href="#">Logged in as:  <%= loginUser %></a>
+							<a class="phone_top" href="#">Logged in as:  <%= loginUser %> (Seller)</a>
 						<%}%>
 					</div>
 				</div>
@@ -98,64 +94,48 @@
 		</div>
 		<!-- /main_header -->
 
-
-		<!-- /main_nav -->
 	</header>
 	<!-- /header -->
 		
 	<main>
 
-	    <!-- /top_banner -->
-	    <div id="stick_here"></div>
-		<script type="text/javascript">
-			var redirectionUrl='';
-			var urlParams = new URLSearchParams(window.location.search);
-	
-			if (urlParams.has('id')) {//check krega k id k name se koi parameter ha
-				redirectionUrl=urlParams.get('id')//agr ha to get kar k redirectionurl me store kr de
-			}
-		</script>
+		<!-- /top_banner -->
 
 
-	    <!-- /toolbox -->
-	    <div class="container margin_30">
-	        <div class="row">
+			<div class="container margin_30">
+				<div class="row small-gutters">
+				<%if(records.length>0){
+					records.forEach(function(row){%>
 				
-	            <div class="col-lg-12">
-							
-		
-<%if(records.length>0){
-	records.forEach(function(row){%>
-				<div class="row row_item">
-					<div class="col-sm-4">
+				<div class="col-6 col-md-4 col-xl-3">
+					<div class="grid_item">
+
 						<figure>
 							<a href="#">
-								<img class="img-fluid lazy loaded" src="uploads/<%=row.imagename%>"  alt="No Image Found">
+								<img class="img-fluid lazy" src="/uploads/<%=row.imagename%>" data-src="/uploads/<%=row.imagename%>" alt="">
 							</a>
 						</figure>
-					</div>
-					<div class="col-sm-8">
-						 <a href="#">
+						<a href="#">
 							<h3><%=row.shopname%></h3>
 						</a>
-						<p><%=row.shopaddress%></p>
+						<div class="price_box">
+							<span class="new_price"><%=row.shopaddress%></span>
+						</div>
 						<ul>
-							<li><a href="/Viewallproducts/<%=row._id%>/<%=row.user_id%>" class="btn_1">View Shop</a></li>
-							<li><a href="/Shopdetail/delete/<%=row._id%>/<%=row.user_id%>" class="btn_1 gray tooltip-1" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete Shop"><i class="fa fa-trash-o" ></i><span>Add to favorites</span></a></li>
-		
+							<li><a href="/Admindeletestore/delete/<%=row._id%>/<%=adminid%>" class="tooltip-1" data-toggle="tooltip" data-placement="left" title="Delete Shop"><i class="fa fa-trash-o"></i><span>Delete Shop</span></a></li>
+							<li><a href="/Adminviewallproducts/<%=row._id%>/<%=adminid%>/<%=row.user_id%>" class="tooltip-1" data-toggle="tooltip" data-placement="left" title="View Shop Details"><i class="fa fa-info"></i><span>View Shop Details</span></a></li>
 						</ul>
 					</div>
+					<!-- /grid_item -->
 				</div>
-<%    
-	})} %>
+				<!-- /col -->
+				
+				<!-- /col -->				
+			<% })} %>
+			<!-- /row -->
 				</div>
-	            <!-- /col -->
-
-	            <!-- /col -->
-	        </div>
-	        <!-- /row -->
-	    </div>
-	    <!-- /container -->
+		</div>
+		<!-- /container -->
 	</main>
 	<!-- /main -->
 	
@@ -166,11 +146,8 @@
 					<h3 data-target="#collapse_1">Quick Links</h3>
 					<div class="collapse dont-collapse-sm links" id="collapse_1">
 						<ul>
-							<li><a href="/Customerdashboard?id=610568231278cc00fc048d31">Dashboard</a></li>
-							<li><a href="/Customerviewallstores/610568231278cc00fc048d31">Stores</a></li>
-							<li><a href="/Customershowallproducts/610568231278cc00fc048d31">Products</a></li>
-							<li><a href="account.html">My account</a></li>
-							<li><a href="/Cart/6104f5c55883541c5016f19a/610568231278cc00fc048d31">Cart</a></li>
+							<li><a href="/Sellerdashboard?id=60d2e95fb0ba5d2a78f56df0">Dashboard</a></li>
+							<li><a href="#">Stores</a></li>
 						</ul>
 					</div>
 				</div>
@@ -178,7 +155,6 @@
 					<h3 data-target="#collapse_2">Users</h3>
 					<div class="collapse dont-collapse-sm links" id="collapse_2">
 						<ul>
-							<li><a href="/Customerfeedback/610568231278cc00fc048d31">Feedback</a></li>
 							<li><a href="/logout">LOG OUT</a></li>
 						</ul>
 					</div>
@@ -213,12 +189,12 @@
 	<div id="toTop"></div><!-- Back to top button -->
 	
 	<!-- COMMON SCRIPTS -->
-    <script src="js/common_scripts.min.js"></script>
-    <script src="js/main.js"></script>
+    <script src="/js/common_scripts.min.js"></script>
+    <script src="/js/main.js"></script>
 	
 	<!-- SPECIFIC SCRIPTS -->
-	<script src="js/sticky_sidebar.min.js"></script>
-	<script src="js/specific_listing.js"></script>
+	<script src="/js/sticky_sidebar.min.js"></script>
+	<script src="/js/specific_listing.js"></script>
 		
 </body>
 </html>

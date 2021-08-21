@@ -4,7 +4,10 @@ mongoose.connect('mongodb+srv://tutweb:tutweb123@cluster0.gmxzy.mongodb.net/Digi
 var conn =mongoose.Collection;
 
 var feedbackSchema = new mongoose.Schema({
-
+    q0:{
+        type: String,
+        required: true
+    },
     q1:{
         type: String,
         required: true

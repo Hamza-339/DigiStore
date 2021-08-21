@@ -14,7 +14,7 @@ var shopSchema = new mongoose.Schema({
     user_id:{
         type:mongoose.Schema.ObjectId,
         required: true
-    },
+    }, 
     imagename:{
         type: String,
         required: true

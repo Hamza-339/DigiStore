@@ -30,6 +30,14 @@ var CustomershowallproductsRouter = require('./routes/Customershowallproducts');
 var CustomerfeedbackRouter = require('./routes/Customerfeedback');
 var SellerstoresRouter = require('./routes/Sellerstores');
 var AdmindashboardRouter = require('./routes/Admindashboard');
+var AdminsellerstoresRouter = require('./routes/Adminsellerstores');
+var AdminviewallproductsRouter = require('./routes/Adminviewallproducts');
+var AdmindeleteproductRouter = require('./routes/Admindeleteproduct');
+var AdmindeletestoreRouter = require('./routes/Admindeletestore');
+var AdminuserdeleteRouter = require('./routes/Adminuserdelete')
+var ViewregisteredusersRouter = require('./routes/Viewregisteredusers')
+var SellerfeedbackRouter = require('./routes/Sellerfeedback')
+
 
 
 
@@ -74,6 +82,14 @@ app.use('/Customershowallproducts', CustomershowallproductsRouter);
 app.use('/Customerfeedback', CustomerfeedbackRouter);
 app.use('/Sellerstores', SellerstoresRouter);
 app.use('/Admindashboard', AdmindashboardRouter);
+app.use('/Adminsellerstores', AdminsellerstoresRouter);
+app.use('/Adminviewallproducts', AdminviewallproductsRouter);
+app.use('/Admindeleteproduct', AdmindeleteproductRouter);
+app.use('/Admindeletestore', AdmindeletestoreRouter);
+app.use('/Adminuserdelete', AdminuserdeleteRouter);
+app.use('/Viewregisteredusers', ViewregisteredusersRouter);
+app.use('/Sellerfeedback', SellerfeedbackRouter);
+
 
 
 
