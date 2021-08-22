@@ -76,13 +76,13 @@
 									<a href="/Admindashboard?id=<%=admin_id%>">Dashboard</a>
 								</li>
 								<li>
-									<a href="#">Store Management</a>
+									<a href="/Adminsellerstores/<%=admin_id%>">Store Management</a>
 								</li>
 								<li>
 									<a href="#">User Management</a>
 								</li>
 								<li>
-									<a href="#">Feedback</a>
+									<a href="/Adminviewfeedback/<%=admin_id%>">Feedback</a>
 								</li>
 								<li>
 									<a href="/logout">LOG OUT</a>
@@ -93,7 +93,7 @@
 					</nav>
 					<div class="col-xl-3 col-lg-2 d-lg-flex align-items-center justify-content-end text-right">
 						<%if(loginUser!=" "){%>
-							<a class="phone_top" href="#">Logged in as:  <%= loginUser %> (Seller)</a>
+							<a class="phone_top" href="#">Logged in as:  <%= loginUser %></a>
 						<%}%>
 					</div>
 				</div>

@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="Ansonika">
-    <title>DIGI-STORE</title>
+    <title>Allaia | Bootstrap eCommerce Template - ThemeForest</title>
 
     <!-- Favicons-->
     <link rel="shortcut icon" href="/img/dlogo.png" type="image/x-icon">
@@ -24,21 +24,16 @@
     <link href="css/style.css" rel="stylesheet">
 
 	<!-- SPECIFIC CSS -->
-    <link href="css/listing.css" rel="stylesheet">
+    <link href="css/home_1.css" rel="stylesheet">
 
     <!-- YOUR CUSTOM CSS -->
     <link href="css/custom.css" rel="stylesheet">
-
-	<link src="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-	<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
 
 </head>
 
 <body>
 	
-	<div id="page" class="theia-exception">
+	<div id="page">
 		
 	<header class="version_1">
 		<div class="layer"></div><!-- Mobile menu overlay mask -->
@@ -75,14 +70,11 @@
 									<a href="/Viewregisteredusers/<%=user_id%>">User Management</a>
 								</li>
 								<li>
-									<a href="#">Feedback</a>
+									<a href="/Adminviewfeedback/<%=user_id%>">Feedback</a>
 								</li>
 								<li>
 									<a href="/logout">LOG OUT</a>
 								</li>
-							<!--	<li>
-									<a href="/logout">Log out</a>
-								</li>-->
 							</ul>
 						</div>
 						<!--/main-menu -->
@@ -104,61 +96,90 @@
 	<!-- /header -->
 		
 	<main>
+		<div id="carousel-home">
+			<div class="owl-carousel owl-theme">
+				<div class="owl-slide cover" style="background-image: url(img/adminb1.png);">
+					<div class="opacity-mask d-flex align-items-center" data-opacity-mask="rgba(0, 0, 0, 0.5)">
+						<div class="container">
+							<div class="row justify-content-center justify-content-md-end">
+								<div class="col-lg-6 static">
+									<div class="slide-text text-right white">
 
-	    <!-- /top_banner -->
-	    <div id="stick_here"></div>
-		<script type="text/javascript">
-			var redirectionUrl='';
-			var urlParams = new URLSearchParams(window.location.search);
-	
-			if (urlParams.has('id')) {//check krega k id k name se koi parameter ha
-				redirectionUrl=urlParams.get('id')//agr ha to get kar k redirectionurl me store kr de
-			}
-		</script>
-
-
-	    <!-- /toolbox -->
-	    <div class="container margin_30">
-	        <div class="row">
-				
-	            <div class="col-lg-12">
-							
-		
-<%if(records.length>0){
-	records.forEach(function(row){%>
-				<div class="row row_item">
-					<div class="col-sm-4">
-						<figure>
-							<a href="#">
-								<img class="img-fluid lazy loaded" src="uploads/<%=row.imagename%>"  alt="No Image Found">
-							</a>
-						</figure>
-					</div>
-					<div class="col-sm-8">
-						 <a href="#">
-							<h3><%=row.shopname%></h3>
-						</a>
-						<p><%=row.shopaddress%></p>
-						<ul>
-							<li><a href="/Viewallproducts/<%=row._id%>/<%=row.user_id%>" class="btn_1">View Shop</a></li>
-							<li><a href="/Shopdetail/delete/<%=row._id%>/<%=row.user_id%>" class="btn_1 gray tooltip-1" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete Shop"><i class="fa fa-trash-o" ></i><span>Add to favorites</span></a></li>
-		
-						</ul>
+									</div>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
-<%    
-	})} %>
-				</div>
-	            <!-- /col -->
+				<!--/owl-slide-->
+				<div class="owl-slide cover" style="background-image: url(img/adminb1.png);">
+					<div class="opacity-mask d-flex align-items-center" data-opacity-mask="rgba(0, 0, 0, 0.5)">
+						<div class="container">
+							<div class="row justify-content-center justify-content-md-start">
+								<div class="col-lg-6 static">
+									<div class="slide-text white">
 
-	            <!-- /col -->
-	        </div>
-	        <!-- /row -->
-	    </div>
-	    <!-- /container -->
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--/owl-slide-->
+				<div class="owl-slide cover" style="background-image: url(img/adminb1.png);">
+					<div class="opacity-mask d-flex align-items-center" data-opacity-mask="rgba(255, 255, 255, 0.5)">
+						<div class="container">
+							<div class="row justify-content-center justify-content-md-start">
+								<div class="col-lg-12 static">
+									<div class="slide-text text-center black">										
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!--/owl-slide-->
+				</div>
+			</div>
+			<div id="icon_drag_mobile"></div>
+		</div>
+		<!--/carousel-->
+		<ul id="banners_grid" class="clearfix">
+			<li>
+				<a href="/Adminsellerstores/<%=user_id%>" class="img_container">
+					<img src="img/banners_cat_placeholder.jpg" data-src="img/banner_1.jpg" alt="" class="lazy">
+					<div class="short_info opacity-mask" data-opacity-mask="rgba(0, 0, 0, 0.5)">
+						<h3>STORE MANAGEMENT</h3>
+						<div><span class="btn_1">Click here</span></div>
+					</div>
+				</a>
+			</li>
+			<li>
+				<a href="/Viewregisteredusers/<%=user_id%>" class="img_container">
+					<img src="img/banners_cat_placeholder.jpg" data-src="img/banner_2.jpg" alt="" class="lazy">
+					<div class="short_info opacity-mask" data-opacity-mask="rgba(0, 0, 0, 0.5)">
+						<h3>USER MANAGEMENT</h3>
+						<div><span class="btn_1">Click here</span></div>
+					</div>
+				</a>
+			</li>
+			<li>
+				<a href="#0" class="img_container">
+					<img src="img/banners_cat_placeholder.jpg" data-src="img/banner_3.jpg" alt="" class="lazy">
+					<div class="short_info opacity-mask" data-opacity-mask="rgba(0, 0, 0, 0.5)">
+						<h3>Check Feedback</h3>
+						<div><span class="btn_1">Click here</span></div>
+					</div>
+				</a>
+			</li>
+		</ul>
+		
+			</div>
+			<!-- /row -->
+		</div>
+		<!-- /container -->
 	</main>
 	<!-- /main -->
-	
+		
 	<footer class="revealed">
 		<div class="container">
 			<div class="row">
@@ -166,11 +187,8 @@
 					<h3 data-target="#collapse_1">Quick Links</h3>
 					<div class="collapse dont-collapse-sm links" id="collapse_1">
 						<ul>
-							<li><a href="/Customerdashboard?id=610568231278cc00fc048d31">Dashboard</a></li>
-							<li><a href="/Customerviewallstores/610568231278cc00fc048d31">Stores</a></li>
-							<li><a href="/Customershowallproducts/610568231278cc00fc048d31">Products</a></li>
-							<li><a href="account.html">My account</a></li>
-							<li><a href="/Cart/6104f5c55883541c5016f19a/610568231278cc00fc048d31">Cart</a></li>
+							<li><a href="/Sellerdashboard?id=60d2e95fb0ba5d2a78f56df0">Dashboard</a></li>
+							<li><a href="#">Stores</a></li>
 						</ul>
 					</div>
 				</div>
@@ -178,7 +196,6 @@
 					<h3 data-target="#collapse_2">Users</h3>
 					<div class="collapse dont-collapse-sm links" id="collapse_2">
 						<ul>
-							<li><a href="/Customerfeedback/610568231278cc00fc048d31">Feedback</a></li>
 							<li><a href="/logout">LOG OUT</a></li>
 						</ul>
 					</div>
@@ -217,8 +234,7 @@
     <script src="js/main.js"></script>
 	
 	<!-- SPECIFIC SCRIPTS -->
-	<script src="js/sticky_sidebar.min.js"></script>
-	<script src="js/specific_listing.js"></script>
-		
+	<script src="js/carousel-home.min.js"></script>
+
 </body>
 </html>

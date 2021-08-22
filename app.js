@@ -37,6 +37,7 @@ var AdmindeletestoreRouter = require('./routes/Admindeletestore');
 var AdminuserdeleteRouter = require('./routes/Adminuserdelete')
 var ViewregisteredusersRouter = require('./routes/Viewregisteredusers')
 var SellerfeedbackRouter = require('./routes/Sellerfeedback')
+var AdminviewfeedbackRouter = require('./routes/Adminviewfeedback')
 
 
 
@@ -89,6 +90,8 @@ app.use('/Admindeletestore', AdmindeletestoreRouter);
 app.use('/Adminuserdelete', AdminuserdeleteRouter);
 app.use('/Viewregisteredusers', ViewregisteredusersRouter);
 app.use('/Sellerfeedback', SellerfeedbackRouter);
+app.use('/Adminviewfeedback', AdminviewfeedbackRouter);
+
 
 
 

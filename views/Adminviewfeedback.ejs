@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="Ansonika">
-    <title>DIGI-STORE</title>
+    <title>Allaia | Bootstrap eCommerce Template - ThemeForest</title>
 
     <!-- Favicons-->
     <link rel="shortcut icon" href="/img/dlogo.png" type="image/x-icon">
@@ -17,21 +17,19 @@
     <link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="/img/apple-touch-icon-144x144-precomposed.png">
 	
     <!-- GOOGLE WEB FONT -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap" rel="stylesheet">
+    <link href="/https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap" rel="stylesheet">
 
     <!-- BASE CSS -->
     <link href="/css/bootstrap.custom.min.css" rel="stylesheet">
     <link href="/css/style.css" rel="stylesheet">
 
 	<!-- SPECIFIC CSS -->
-    <link href="/css/listing.css" rel="stylesheet">
+    <link href="/css/home_1.css" rel="stylesheet">
 
     <!-- YOUR CUSTOM CSS -->
     <link href="/css/custom.css" rel="stylesheet">
-
-	<link src="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-	<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- YOUR CUSTOM CSS -->
+    <link href="/css/blog.css" rel="stylesheet">
 
 </head>
 
@@ -60,7 +58,7 @@
 						<!-- Mobile menu button -->
 						<div class="main-menu">
 							<div id="header_menu">
-								<a href="index.html"><img src="/img/logo_black.svg" alt="" width="100" height="35"></a>
+								<a href="#"><img src="/img/logo_black.svg" alt="" width="100" height="35"></a>
 								<a href="#" class="open_close" id="close_in"><i class="ti-close"></i></a>
 							</div>
 							<ul style="width: 700px;">
@@ -68,13 +66,13 @@
 									<a href="/Admindashboard?id=<%=adminid%>">Dashboard</a>
 								</li>
 								<li>
-									<a href="#">Store Management</a>
+									<a href="/Adminsellerstores/<%=adminid%>">Store Management</a>
 								</li>
 								<li>
 									<a href="/Viewregisteredusers/<%=adminid%>">User Management</a>
 								</li>
-								<li>
-									<a href="/Adminviewfeedback/<%=adminid%>">Feedback</a>
+								<li> 
+									<a href="#">Feedback</a>
 								</li>
 								<li>
 									<a href="/logout">LOG OUT</a>
@@ -94,51 +92,118 @@
 		</div>
 		<!-- /main_header -->
 
+
+		<!-- /main_nav -->
 	</header>
 	<!-- /header -->
 		
 	<main>
 
-		<!-- /top_banner -->
+        <div id="comments" style="margin-left: 3%;">
+            <h5 style="font-family: Arial, Helvetica, sans-serif;margin-top: 3%;">What is the primary reason you came to the site?</h5><ul>
+			<%if(records.length>0){
+				records.forEach(function(row){%>
+            
+                <li>
+                    <div class="avatar">
+                        <a href="#"><img src="/img/avatar1.jpg" alt="">
+                        </a>
+                    </div>
+                    <div class="comment_right clearfix">
+						
+                        <div class="comment_info">
+                            By <a href="#"><%=row.q0%></a><span></span><span></span><a href="#"><i class="icon-reply"></i></a>
+                        </div>
+                        <p>
+                           <%=row.q2%>
+                        </p>
+                    </div>
 
+                </li>
 
-			<div class="container margin_30">
-				<div class="row small-gutters">
-				<%if(records.length>0){
-					records.forEach(function(row){%>
-				
-				<div class="col-6 col-md-4 col-xl-3">
-					<div class="grid_item">
-
-						<figure>
-							<a href="#">
-								<img class="img-fluid lazy" src="/uploads/<%=row.imagename%>" data-src="/uploads/<%=row.imagename%>" alt="">
-							</a>
-						</figure>
-						<a href="#">
-							<h3><%=row.shopname%></h3>
-						</a>
-						<div class="price_box">
-							<span class="new_price"><%=row.shopaddress%></span>
-						</div>
-						<ul>
-							<li><a href="/Admindeletestore/delete/<%=row._id%>/<%=adminid%>" class="tooltip-1" data-toggle="tooltip" data-placement="left" title="Delete Shop"><i class="fa fa-trash-o"></i><span>Delete Shop</span></a></li>
-							<li><a href="/Adminviewallproducts/<%=row._id%>/<%=adminid%>/<%=row.user_id%>" class="tooltip-1" data-toggle="tooltip" data-placement="left" title="View Shop Details"><i class="fa fa-info"></i><span>View Shop Details</span></a></li>
-						</ul>
-					</div>
-					<!-- /grid_item -->
-				</div>
-				<!-- /col -->
-				
-				<!-- /col -->				
+           
 			<% })} %>
-			<!-- /row -->
-				</div>
-		</div>
+		</ul>  </div>
+		<div id="comments" style="margin-left: 3%;">
+            <h5 style="font-family: Arial, Helvetica, sans-serif;margin-top: 1%;">Did you find what you needed?</h5><ul>
+			<%if(records.length>0){
+				records.forEach(function(row){%>
+            
+                <li>
+                    <div class="avatar">
+                        <a href="#"><img src="/img/avatar1.jpg" alt="">
+                        </a>
+                    </div>
+                    <div class="comment_right clearfix">
+						
+                        <div class="comment_info">
+                            By <a href="#"><%=row.q0%></a><span></span><span></span><a href="#"><i class="icon-reply"></i></a>
+                        </div>
+                        <p>
+                           <%=row.q3%>
+                        </p>
+                    </div>
+
+                </li>
+
+           
+			<% })} %>
+		</ul>  </div>
+		<div id="comments" style="margin-left: 3%;">
+            <h5 style="font-family: Arial, Helvetica, sans-serif;margin-top: 1%;">What is the likelihood that you will visit the website again?</h5><ul>
+			<%if(records.length>0){
+				records.forEach(function(row){%>
+            
+                <li>
+                    <div class="avatar">
+                        <a href="#"><img src="/img/avatar1.jpg" alt="">
+                        </a>
+                    </div>
+                    <div class="comment_right clearfix">
+						
+                        <div class="comment_info">
+                            By <a href="#"><%=row.q0%></a><span></span><span></span><a href="#"><i class="icon-reply"></i></a>
+                        </div>
+                        <p>
+                           <%=row.q6%>
+                        </p>
+                    </div>
+
+                </li>
+
+           
+			<% })} %>
+		</ul>  </div>
+		<div id="comments" style="margin-left: 3%;">
+            <h5 style="font-family: Arial, Helvetica, sans-serif;margin-top: 1%;">Please add any comments you have for improving the website.</h5><ul>
+			<%if(records.length>0){
+				records.forEach(function(row){%>
+            
+                <li>
+                    <div class="avatar">
+                        <a href="#"><img src="/img/avatar1.jpg" alt="">
+                        </a>
+                    </div>
+                    <div class="comment_right clearfix">
+						
+                        <div class="comment_info">
+                            By <a href="#"><%=row.q0%></a><span></span><span></span><a href="#"><i class="icon-reply"></i></a>
+                        </div>
+                        <p>
+                           <%=row.q7%>
+                        </p>
+                    </div>
+
+                </li>
+
+           
+			<% })} %>
+		</ul>  </div>
+		
 		<!-- /container -->
 	</main>
 	<!-- /main -->
-	
+		
 	<footer class="revealed">
 		<div class="container">
 			<div class="row">
@@ -192,9 +257,9 @@
     <script src="/js/common_scripts.min.js"></script>
     <script src="/js/main.js"></script>
 	
+	
 	<!-- SPECIFIC SCRIPTS -->
-	<script src="/js/sticky_sidebar.min.js"></script>
-	<script src="/js/specific_listing.js"></script>
-		
+	<script src="/js/carousel-home.min.js"></script>
+
 </body>
 </html>
