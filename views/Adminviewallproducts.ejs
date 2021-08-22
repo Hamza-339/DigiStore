@@ -68,21 +68,21 @@
 						<!-- Mobile menu button -->
 						<div class="main-menu">
 							<div id="header_menu">
-								<a href="index.html"><img src="/img/logo_black.svg" alt="" width="100" height="35"></a>
+								<a href="#"><img src="/img/dlogo.png" alt="" width="100" height="35"></a>
 								<a href="#" class="open_close" id="close_in"><i class="ti-close"></i></a>
 							</div>
 							<ul style="width: 700px;">
 								<li>
-									<a href="#">Dashboard</a>
+									<a href="/Admindashboard?id=<%=admin_id%>">Dashboard</a>
 								</li>
 								<li>
-									<a href="#">Store Management</a>
+									<a href="/Adminsellerstores/<%=admin_id%>">Store Management</a>
 								</li>
 								<li>
-									<a href="#">User Management</a>
+									<a href="/Viewregisteredusers/<%=admin_id%>">User Management</a>
 								</li>
 								<li>
-									<a href="#">Feedback</a>
+									<a href="/Adminviewfeedback/<%=admin_id%>">Feedback</a>
 								</li>
 								<li>
 									<a href="/logout">LOG OUT</a>
@@ -214,8 +214,10 @@
 					<h3 data-target="#collapse_1">Quick Links</h3>
 					<div class="collapse dont-collapse-sm links" id="collapse_1">
 						<ul>
-							<li><a href="/Sellerdashboard?id=60d2e95fb0ba5d2a78f56df0">Dashboard</a></li>
-							<li><a href="/Sellerstores/60d2e95fb0ba5d2a78f56df0">Stores</a></li>
+							<li><a href="/Admindashboard?id=<%=admin_id%>">Dashboard</a></li>
+							<li><a href="/Adminsellerstores/<%=admin_id%>">Stores</a></li>
+							<li><a href="/Viewregisteredusers/<%=admin_id%>">Users</a></li>
+							<li><a href="/Adminviewfeedback/<%=admin_id%>">Feedback</a></li>
 						</ul>
 					</div>
 				</div>

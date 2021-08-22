@@ -56,7 +56,7 @@
 						<!-- Mobile menu button -->
 						<div class="main-menu">
 							<div id="header_menu">
-								<a href="index.html"><img src="img/logo_black.svg" alt="" width="100" height="35"></a>
+								<a href="index.html"><img src="img/dlogo.png" alt="" width="100" height="35"></a>
 								<a href="#" class="open_close" id="close_in"><i class="ti-close"></i></a>
 							</div>
 							<ul style="width: 700px;">
@@ -96,99 +96,66 @@
 	<!-- /header -->
 		
 	<main>
-		<div id="carousel-home">
-			<div class="owl-carousel owl-theme">
-				<div class="owl-slide cover" style="background-image: url(img/adminb1.png);">
-					<div class="opacity-mask d-flex align-items-center" data-opacity-mask="rgba(0, 0, 0, 0.5)">
-						<div class="container">
-							<div class="row justify-content-center justify-content-md-end">
-								<div class="col-lg-6 static">
-									<div class="slide-text text-right white">
-
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!--/owl-slide-->
-				<div class="owl-slide cover" style="background-image: url(img/adminb1.png);">
-					<div class="opacity-mask d-flex align-items-center" data-opacity-mask="rgba(0, 0, 0, 0.5)">
-						<div class="container">
-							<div class="row justify-content-center justify-content-md-start">
-								<div class="col-lg-6 static">
-									<div class="slide-text white">
-
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!--/owl-slide-->
-				<div class="owl-slide cover" style="background-image: url(img/adminb1.png);">
-					<div class="opacity-mask d-flex align-items-center" data-opacity-mask="rgba(255, 255, 255, 0.5)">
-						<div class="container">
-							<div class="row justify-content-center justify-content-md-start">
-								<div class="col-lg-12 static">
-									<div class="slide-text text-center black">										
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<!--/owl-slide-->
-				</div>
-			</div>
+		<div   style="background-image: url(img/adban.jpg); height: 417px; width: 626px; margin-left: 32%;" ></div>
 			<div id="icon_drag_mobile"></div>
 		</div>
 		<!--/carousel-->
-		<ul id="banners_grid" class="clearfix">
+		<ul id="banners_grid" class="clearfix" style="background-color: white;">
 			<li>
-				<a href="/Adminsellerstores/<%=user_id%>" class="img_container">
-					<img src="img/banners_cat_placeholder.jpg" data-src="img/banner_1.jpg" alt="" class="lazy">
-					<div class="short_info opacity-mask" data-opacity-mask="rgba(0, 0, 0, 0.5)">
-						<h3>STORE MANAGEMENT</h3>
-						<div><span class="btn_1">Click here</span></div>
-					</div>
+			
+					<img src="img/adminstore.png" data-src="img/adminstore.png" style="margin-left: 32%; height: 180px; width: 180px;">
+					
+						<h3 style="margin-left: 34%; font-size: 14px; font-weight: bold; margin-top: 8px;">STORE MANAGEMENT</h3>
+						<a href="/Adminsellerstores/<%=user_id%>">
+						<div style="margin-left: 37%;"><span class="btn_1">Click here</span></div>
+					
 				</a>
 			</li>
 			<li>
-				<a href="/Viewregisteredusers/<%=user_id%>" class="img_container">
-					<img src="img/banners_cat_placeholder.jpg" data-src="img/banner_2.jpg" alt="" class="lazy">
-					<div class="short_info opacity-mask" data-opacity-mask="rgba(0, 0, 0, 0.5)">
-						<h3>USER MANAGEMENT</h3>
-						<div><span class="btn_1">Click here</span></div>
-					</div>
+				
+					<img src="img/adminuser.png" data-src="img/adminuser.png" style="margin-left: 32%; height: 180px; width: 180px;">
+					
+						<h3 style="margin-left: 35.5%;font-size: 14px; font-weight: bold; margin-top: 8px;">USER MANAGEMENT</h3>
+						<a href="/Viewregisteredusers/<%=user_id%>">
+						<div style="margin-left: 37%;"><span class="btn_1">Click here</span></div>
+					
 				</a>
 			</li>
 			<li>
-				<a href="/Adminviewfeedback/<%=user_id%>" class="img_container">
-					<img src="img/banners_cat_placeholder.jpg" data-src="img/banner_3.jpg" alt="" class="lazy">
-					<div class="short_info opacity-mask" data-opacity-mask="rgba(0, 0, 0, 0.5)">
-						<h3>Check Feedback</h3>
-						<div><span class="btn_1">Click here</span></div>
-					</div>
+				
+					<img src="img/adminfeedback.png" data-src="img/adminfeedback.png" style="margin-left: 32%; height: 180px; width: 180px;" >
+				
+						<h3 style="margin-left: 36.5%;font-size: 14px; font-weight: bold; margin-top: 8px;">CHECK FEEDBACK</h3>
+						<a href="/Adminviewfeedback/<%=user_id%>" >
+						<div style="margin-left: 37%;"><span class="btn_1">Click here</span></div>
+					
 				</a>
 			</li>
+			
 		</ul>
+			
 		
 			</div>
 			<!-- /row -->
+			<br>
 		</div>
 		<!-- /container -->
 	</main>
 	<!-- /main -->
+
+
 		
-	<footer class="revealed">
-		<div class="container">
+	<footer class="revealed" style="margin-top: 2%;">
+		<div class="container" style="margin-top: 5%;">
 			<div class="row">
 				<div class="col-lg-3 col-md-6">
 					<h3 data-target="#collapse_1">Quick Links</h3>
 					<div class="collapse dont-collapse-sm links" id="collapse_1">
 						<ul>
-							<li><a href="/Sellerdashboard?id=60d2e95fb0ba5d2a78f56df0">Dashboard</a></li>
-							<li><a href="#">Stores</a></li>
+							<li><a href="#">Dashboard</a></li>
+							<li><a href="/Adminsellerstores/<%=user_id%>">Stores</a></li>
+							<li><a href="/Viewregisteredusers/<%=user_id%>">Users</a></li>
+							<li><a href="/Adminviewfeedback/<%=user_id%>">Feedback</a></li>
 						</ul>
 					</div>
 				</div>
